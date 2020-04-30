@@ -1,50 +1,9 @@
-<?php
-    // SDK de Mercado Pago
-    require __DIR__ .  '/vendor/autoload.php';
-
-    // Agrega credenciales           
-    MercadoPago\SDK::setAccessToken('APP_USR-6588866596068053-041607-428a530760073a99a1f2d19b0812a5b6-491494389');
-
-    // Crea un objeto de preferencia
-    $preference = new MercadoPago\Preference();
-    $preference->external_reference = "ABCD1234";
-
-    // Crea un ítem en la preferencia
-    $item = new MercadoPago\Item();
-    $item->id = 1234;
-    $item->title = $_POST['title'];
-    $item->description = "Dispositivo móvil de Tienda e-commerce";
-    $item->picture_url = $_POST['img'];
-    $item->quantity = $_POST['unit'];
-    $item->unit_price = $_POST['price'];
-
-    $preference->items = array($item);
-
-    $preference->payment_methods = array(
-      "excluded_payment_methods" => array(
-        array("id" => "amex")
-      ),
-      "excluded_payment_types" => array(
-        array("id" => "atm")
-      ),
-      "installments" => 6
-    );
-
-    $preference->back_urls = array(
-        "success" => "https://linkparzival-mp-ecommerce-php.herokuapp.com/success.php",
-        "failure" => "https://linkparzival-mp-ecommerce-php.herokuapp.com/failure.php",
-        "pending" => "https://linkparzival-mp-ecommerce-php.herokuapp.com/pending.php"
-    );
-    $preference->auto_return = "approved";
-
-    $preference->save();
-
-?>
+<?php ?>
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=1024">
-    <title>Tienda e-commerce</title>
+    <title>Pending - Tienda e-commerce</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="format-detection" content="telephone=no">
@@ -119,7 +78,7 @@
 
                                     <button class="as-filter-button" aria-expanded="true" aria-controls="as-search-filters" type="button">
                                         <h2 class=" as-filter-button-text">
-                                            Smartphones
+                                            PENDING
                                         </h2>
                                     </button>
 
@@ -130,54 +89,8 @@
                         </div>
                         <div class="as-accessories-results  as-search-desktop">
                             <div class="width:60%">
-                                <div class="as-producttile-tilehero with-paddlenav " style="float:left;">
-                                    <div class="as-dummy-container as-dummy-img">
-
-                                        <img src="./assets/wireless-headphones" class="ir ir item-image as-producttile-image  " style="max-width: 70%;max-height: 70%;"alt="" width="445" height="445">
-                                    </div>
-                                    <div class="images mini-gallery gal5 ">
-                                    
-
-                                        <div class="as-isdesktop with-paddlenav with-paddlenav-onhover">
-                                            <div class="clearfix image-list xs-no-js as-util-relatedlink relatedlink" data-relatedlink="6|Powerbeats3 Wireless Earphones - Neighborhood Collection - Brick Red|MPXP2">
-                                                <div class="as-tilegallery-element as-image-selected">
-                                                    <div class=""></div>
-                                                    <img src="./assets/003.jpg" class="ir ir item-image as-producttile-image" alt="" width="445" height="445" style="content:-webkit-image-set(url(<?php echo $_POST['img'] ?>) 2x);">
-                                                </div>
-                                                
-                                            </div>
-
-                                            
-                                        </div>
-
-                                        
-
-                                    </div>
-
-                                </div>
                                 <div class="as-producttile-info" style="float:left;min-height: 168px;">
-                                    <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
-                                        <div class="as-producttile-title">
-                                            <h3 class="as-producttile-name">
-                                                <p class="as-producttile-tilelink">
-                                                    <span data-ase-truncate="2"><?php echo $_POST['title'] ?></span>
-                                                </p>
-
-                                            </h3>
-                                        </div>
-                                        <h3 >
-                                            <?php echo $_POST['price'] ?>
-                                        </h3>
-                                        <h3 >
-                                            <?php echo "$" . $_POST['unit'] ?>
-                                        </h3>
-                                    </div>
-                                    <form action="/procesar-pago" method="POST">
-                                      <script
-                                       src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
-                                       data-preference-id="<?php echo $preference->id; ?>" data-button-label="Pagar la compra" data-elements-color="#2D3277">
-                                      </script>
-                                    </form>
+                                    Su pago esta en proceso de validación una vez realice el pago en tienda se autorizara el pago.
                                 </div>
                             </div>
                         </div>
