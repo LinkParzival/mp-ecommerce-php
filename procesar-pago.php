@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_REQUEST["back_url"]) && false){
+if(isset($_REQUEST["back_url"])){
 	$id = $_REQUEST["payment_id"];
 	$json = file_get_contents("https://api.mercadopago.com/v1/payments/{$id}?access_token=APP_USR-6588866596068053-041607-428a530760073a99a1f2d19b0812a5b6-491494389");
 	$obj = json_decode($json);
