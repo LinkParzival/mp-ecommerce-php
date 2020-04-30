@@ -1,4 +1,4 @@
-<?php ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
@@ -90,7 +90,7 @@
                         <div class="as-accessories-results  as-search-desktop">
                             <div class="width:60%">
                                 <div class="as-producttile-info" style="float:left;min-height: 168px;">
-                                    Pago Exitoso, método de pago [<?= $_GET["payment_type"]; ?>] por la cantidad de [monto pagado] su Nº de orden es: [numero de orden] ID de pago [id]
+                                    Pago Exitoso, método de pago [<?= $_GET["payment_type"]; ?>] por la cantidad de [<?= $_SESSION["transfer"]["transaction_amount"] ?>] su Nº de orden es: [<?= $_GET["merchant_order_id"]; ?>] ID de pago [<?= $_SESSION["transfer"]["payment_id"]; ?>]
                                 </div>
                             </div>
                         </div>
