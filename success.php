@@ -90,7 +90,7 @@
                         <div class="as-accessories-results  as-search-desktop">
                             <div class="width:60%">
                                 <div class="as-producttile-info" style="float:left;min-height: 168px;">
-                                    Pago Exitoso, método de pago [aquí id del método de pago] por la cantidad de [monto pagado] su Nº de orden es: [numero de orden] ID de pago [id]
+                                    Pago Exitoso, método de pago [<?= $_GET["payment_type"]; ?>] por la cantidad de [monto pagado] su Nº de orden es: [numero de orden] ID de pago [id]
                                 </div>
                             </div>
                         </div>
