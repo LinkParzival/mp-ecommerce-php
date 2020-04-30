@@ -37,6 +37,21 @@
     );
     $preference->auto_return = "all";
 
+    $payer = new MercadoPago\Payer();
+    $payer->name = "Lalo";
+    $payer->surname = "Landa";
+    $payer->email = "test_user_58295862@testuser.com";
+    $payer->phone = array(
+        "area_code" => "",
+        "number" => "55 4973 7300"
+    );
+    $payer->address = array(
+        "street_name" => "Insurgentes Sur",
+        "street_number" => 1602,
+        "zip_code" => "03940"
+    );
+    $preference->payer = $payer;
+
     $preference->save();
 
 ?>
@@ -172,10 +187,7 @@
                                             <?php echo "$" . $_POST['unit'] ?>
                                         </h3>
                                     </div>
-                                    <script
-                                       src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
-                                       data-preference-id="<?php echo $preference->id; ?>" data-button-label="Pagar la compra" data-elements-color="#2D3277">
-                                    </script>
+                                    <a href="<?php echo $preference->init_point; ?>" data-button-label="Pagar la compra" data-elements-color="#2D3277">Pagar con Mercado Pago</a>
                                 </div>
                             </div>
                         </div>
