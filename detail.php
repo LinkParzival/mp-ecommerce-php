@@ -11,7 +11,7 @@
 
     // Crea un ítem en la preferencia
     $item = new MercadoPago\Item();
-    $item = 1234;
+    //$item = 1234;
     $item->title = $_POST['title'];
     $item->description = "Dispositivo móvil de Tienda e-commerce";
     $item->picture_url = $_POST['img'];
