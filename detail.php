@@ -7,13 +7,29 @@
 
     // Crea un objeto de preferencia
     $preference = new MercadoPago\Preference();
+    $preference->external_reference = "ABCD1234";
 
     // Crea un ítem en la preferencia
     $item = new MercadoPago\Item();
+    $item = 1234;
     $item->title = $_POST['title'];
+    $item->description = "Dispositivo móvil de Tienda e-commerce";
+    $item->picture_url = $_POST['img'];
     $item->quantity = $_POST['unit'];
     $item->unit_price = $_POST['price'];
+
     $preference->items = array($item);
+
+    $preference->payment_methods = array(
+      "excluded_payment_methods" => array(
+        array("id" => "amex")
+      ),
+      "excluded_payment_types" => array(
+        array("id" => "atm")
+      ),
+      "installments" => 6
+    );
+
     $preference->save();
 
 ?>
