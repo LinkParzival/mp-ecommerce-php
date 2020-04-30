@@ -35,7 +35,7 @@
         "failure" => "https://linkparzival-mp-ecommerce-php.herokuapp.com/failure.php",
         "pending" => "https://linkparzival-mp-ecommerce-php.herokuapp.com/pending.php"
     );
-    $preference->auto_return = "approved";
+    $preference->auto_return = "all";
 
     $preference->save();
 
