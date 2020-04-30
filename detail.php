@@ -187,7 +187,12 @@
                                             <?php echo "$" . $_POST['unit'] ?>
                                         </h3>
                                     </div>
-                                    <a href="<?php echo $preference->init_point; ?>" data-button-label="Pagar la compra" data-elements-color="#2D3277">Pagar con Mercado Pago</a>
+                                    <form action="" method="POST">
+                                    <script
+                                       src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
+                                       data-preference-id="<?php echo $preference->id; ?>" data-button-label="Pagar la compra" data-elements-color="#2D3277">
+                                    </script>
+                                    </form>
                                 </div>
                             </div>
                         </div>
