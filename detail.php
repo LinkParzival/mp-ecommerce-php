@@ -2,8 +2,8 @@
     // SDK de Mercado Pago
     require __DIR__ .  '/vendor/autoload.php';
 
-    // Agrega credenciales
-    MercadoPago\SDK::setAccessToken('APP_USR-6588866596068053-041607-428a530760073a99a1f2d19b0812a5b6-491494389N');
+    // Agrega credenciales           
+    MercadoPago\SDK::setAccessToken('APP_USR-6588866596068053-041607-428a530760073a99a1f2d19b0812a5b6-491494389');
 
     // Crea un objeto de preferencia
     $preference = new MercadoPago\Preference();
@@ -16,8 +16,6 @@
     $preference->items = array($item);
     $preference->save();
 
-    echo "<pre>"; var_dump($item); echo "</pre>";
-    echo "<pre>"; var_dump($preference); echo "</pre>";
 ?>
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
